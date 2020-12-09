@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Header from "./Header";
+import HotelsList from "./HotelsList";
 
 const App = () => {
-    return <h1>BookTheHotel</h1>
+    return (
+    <>
+        <Header/>
+        <HotelsList/>
+    </>
+    )
 }
 
 ReactDOM.render(<App/>, document.getElementById("app"));
