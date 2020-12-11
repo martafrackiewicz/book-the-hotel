@@ -1,7 +1,16 @@
 import React from 'react';
+import HeaderLogo from "./HeaderLogo";
+import HeaderButton from "./HeaderButton";
+import './Header.css';
+
 
 const Header = () => {
-    return <h1>Header</h1>
+    return <header className={"header"}>
+        <div className={"container header-container"}>
+            <HeaderLogo/>
+            <HeaderButton/>
+        </div>
+    </header>
 }
 
 export default Header;
