@@ -1,12 +1,15 @@
 import React from 'react';
+import HotelsListElement from "./HotelsListElement";
 
 const HotelsList = () => {
+
+    const hotels = ["hotel1", "hotel2", "hotel3"]
+
     return (
     <div className={"container"}>
         <ul className={"hotels_list"}>
-            <li className={"hotels_list-element"}>Hotel</li>
-            <li className={"hotels_list-element"}>Hotel</li>
-            <li className={"hotels_list-element"}>Hotel</li>
+            {hotels.map((el, id) =>
+                <HotelsListElement el={el} key={id}/>)}
         </ul>
     </div>
     )
