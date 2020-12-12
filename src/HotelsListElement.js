@@ -1,5 +1,5 @@
 import React from 'react';
-import "./HotelsListElement.css"
+import "./HotelsListElement.scss"
 import firebase from "firebase/app";
 
 console.log(firebase)

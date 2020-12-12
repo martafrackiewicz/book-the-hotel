@@ -1,6 +1,8 @@
+@import "index";
+
 .hotels-list-element {
     max-width: 100%;
     min-height: 200px;
-    border: 1px solid #6c757d;
+    border: 1px solid $base-color;
     margin: 0;
 }

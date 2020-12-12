@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import './HeaderLogo.css';
+import './HeaderLogo.scss';
 
 const HeaderLogo = () => {
     return <Link to={"/"} className={"header-logo"}>BookTheHotel</Link>
