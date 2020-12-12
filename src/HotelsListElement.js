@@ -1,5 +1,8 @@
 import React from 'react';
 import "./HotelsListElement.css"
+import firebase from "firebase/app";
+
+console.log(firebase)
 
 const HotelsListElement = ({id}) => {
 
