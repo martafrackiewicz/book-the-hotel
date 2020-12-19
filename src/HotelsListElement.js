@@ -1,21 +1,18 @@
 import React from 'react';
 import "./HotelsListElement.scss"
-import firebase from "firebase/app";
 
-console.log(firebase)
-
-const HotelsListElement = ({id}) => {
+const HotelsListElement = ({image, name, price, id}) => {
 
     return (
     <li className="row hotels-list-element" key={id}>
-        <div className="col">
-            image
+        <div className="col img">
+            <img alt={"hotel_room"} src={image} className="img-fluid"/>
         </div>
         <div className="col-6">
-            title, description
+            {name}
         </div>
         <div className="col">
-            price
+            {price}
         </div>
     </li>
     )
