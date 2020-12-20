@@ -27,6 +27,8 @@ const HotelsList = () => {
                     return <HotelsListElement
                         image={el.data().image_url}
                         name={el.data().name}
+                        num_stars={el.data().stars}
+                        description={el.data().description}
                         price={el.data().price}
                         key={id}/>
                 })}
