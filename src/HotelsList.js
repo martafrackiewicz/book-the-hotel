@@ -28,6 +28,7 @@ const HotelsList = () => {
                         image={el.data().image_url}
                         name={el.data().name}
                         num_stars={el.data().stars}
+                        address={el.data().address}
                         description={el.data().description}
                         price={el.data().price}
                         key={id}/>

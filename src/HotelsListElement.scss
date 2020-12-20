@@ -19,8 +19,25 @@
         }
     }
 
-    .hotel-specs-name {
+    .price {
+        font-size: 2em;
         display: flex;
+        justify-content: center;
     }
+
+    .hotel-specs {
+
+        &-name {
+            display: flex;
+        }
+
+        .description {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+
 }
 

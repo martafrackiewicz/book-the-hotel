@@ -2,7 +2,7 @@ import React from 'react';
 import "./HotelsListElement.scss";
 import Stars from "./Stars";
 
-const HotelsListElement = ({image, name, num_stars, description, price, id}) => {
+const HotelsListElement = ({image, name, num_stars, address, description, price, id}) => {
 
     return (
     <li className="row hotels-list-element" key={id}>
@@ -14,9 +14,10 @@ const HotelsListElement = ({image, name, num_stars, description, price, id}) => 
                 <h3 className={"name"}>{name}</h3>
                 <Stars num_stars={num_stars}/>
             </div>
+            <p className={"address"}><strong>Address:</strong> {address}</p>
             <p className={"description"}>{description}</p>
         </div>
-        <div className="col">
+        <div className="col price">
             ${price}
         </div>
     </li>
