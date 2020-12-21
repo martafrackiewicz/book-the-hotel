@@ -4,6 +4,7 @@ import './index.scss';
 import 'normalize.css';
 import Header from "./Header";
 import HotelsList from "./HotelsList";
+import Details from "./Details";
 import {BrowserRouter, Route} from "react-router-dom";
 import firebase from "firebase/app";
 // import "firebase/auth";
@@ -26,6 +27,7 @@ const App = () => {
             <>
                 <Header/>
                 <Route exact path='/' component={HotelsList} />
+                <Route exact path='/details' component={Details} />
                 {/*<Route path='/admin' component={AdminPanel} />*/}
             </>
         </BrowserRouter>
