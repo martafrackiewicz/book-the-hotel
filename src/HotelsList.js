@@ -25,6 +25,7 @@ const HotelsList = () => {
             <ul className={"hotels_list"}>
                 {hotels.map((el, id) => {
                     return <HotelsListElement
+                        id={el.id}
                         image={el.data().image_url}
                         name={el.data().name}
                         num_stars={el.data().stars}

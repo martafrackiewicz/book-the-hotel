@@ -27,7 +27,7 @@ const App = () => {
             <>
                 <Header/>
                 <Route exact path='/' component={HotelsList} />
-                <Route exact path='/details' component={Details} />
+                <Route path={`/details/:id`} component={Details} />
                 {/*<Route path='/admin' component={AdminPanel} />*/}
             </>
         </BrowserRouter>

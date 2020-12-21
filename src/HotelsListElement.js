@@ -20,7 +20,7 @@ const HotelsListElement = ({image, name, num_stars, address, description, price,
         </div>
         <div className="col price">
             <p>${price}</p>
-            <DetailsButton />
+            <DetailsButton id={id} />
         </div>
     </li>
     )
