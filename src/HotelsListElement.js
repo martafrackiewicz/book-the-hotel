@@ -1,6 +1,7 @@
 import React from 'react';
 import "./HotelsListElement.scss";
 import Stars from "./Stars";
+import DetailsButton from "./DetailsButton";
 
 const HotelsListElement = ({image, name, num_stars, address, description, price, id}) => {
 
@@ -18,7 +19,8 @@ const HotelsListElement = ({image, name, num_stars, address, description, price,
             <p className={"description"}>{description}</p>
         </div>
         <div className="col price">
-            ${price}
+            <p>${price}</p>
+            <DetailsButton />
         </div>
     </li>
     )

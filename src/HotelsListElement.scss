@@ -22,7 +22,8 @@
     .price {
         font-size: 2em;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     .hotel-specs {
@@ -37,7 +38,5 @@
             text-overflow: ellipsis;
         }
     }
-
-
 }
 
