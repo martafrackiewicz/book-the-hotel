@@ -3,4 +3,56 @@
 .details_wrap {
   border: 1px solid $base-color;
   height: 600px;
+  display: flex;
+  flex-direction: column;
+
+  .hotel_details_main {
+    max-width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+
+    .img {
+      max-height: 100%;
+      margin-top: 20px;
+
+      .img-fluid {
+        max-height: 100%;
+        max-width: 90%;
+      }
+    }
+
+    .price {
+      font-size: 2em;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .hotel-specs {
+
+      &-name {
+        display: flex;
+      }
+    }
+  }
+
+  .hotel_details_extras {
+    max-width: 100%;
+    flex-grow: 2;
+    margin: 0;
+    padding: 0 10px 10px;
+
+    .hotel_extras {
+      padding-left: 20px;
+
+      .hotel_extras_list {
+        padding: 0 10px 10px;
+
+        .hotel_extras_element {
+          list-style: disc;
+        }
+      }
+    }
+  }
 }
