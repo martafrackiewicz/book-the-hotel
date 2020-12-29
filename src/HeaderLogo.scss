@@ -1,3 +1,10 @@
+@import "index";
+
 .header-logo {
     font-size: 3em;
+
+    &:hover {
+        text-decoration: none;
+        color: $base-color;
+    }
 }
