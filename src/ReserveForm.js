@@ -27,13 +27,14 @@ const ReserveForm = () => {
             email: email,
             room: room,
             checkinDate: checkinDate,
-            checkoutDate: checkoutDate
+            checkoutDate: checkoutDate,
+            reservation_date: new Date().toLocaleString()
         });
     }
 
     return <div className="container">
         <h5 className="form-title">Reservation form</h5>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
             <div className="form-row">
                 <div className="form-group col-md-4">
                     <label htmlFor="inputName">Name</label>
