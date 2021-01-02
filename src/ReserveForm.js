@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import "./ReserveForm.scss";
 import firebase from "firebase/app";
-import {onLog} from "firebase";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Link} from "react-router-dom";
 
 const ReserveForm = () => {
 
@@ -11,6 +12,7 @@ const ReserveForm = () => {
     const [room, setRoom] = useState("");
     const [checkinDate, setCheckinDate] = useState("");
     const [checkoutDate, setCheckoutDate] = useState("");
+    const [modal, setModal] = useState(false);
 
     const handleName = e => setName(e.target.value)
     const handleSurname = e => setSurname(e.target.value)
@@ -18,6 +20,8 @@ const ReserveForm = () => {
     const handleRoom = e => setRoom(e.target.value)
     const handleCheckinDate = e => setCheckinDate(e.target.value)
     const handleCheckoutDate = e => setCheckoutDate(e.target.value)
+
+    const toggle = () => setModal(!modal);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,8 +35,8 @@ const ReserveForm = () => {
             checkoutDate: checkoutDate,
             reservation_date: new Date().toLocaleString()
         })
+            .then(() => toggle());
     }
-
     return <div className="container">
         <h5 className="form-title">Reservation form</h5>
         <form onSubmit={(e) => handleSubmit(e)} >
@@ -81,6 +85,15 @@ const ReserveForm = () => {
             </div>
             <button type="submit" className="btn btn-primary reserve-submit-button">Reserve</button>
         </form>
+        <Modal isOpen={modal} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
+            <ModalHeader>Reservation successful!</ModalHeader>
+            <ModalBody>
+                Thank you for your reservation.
+            </ModalBody>
+            <ModalFooter>
+                <Link to="/" className="btn btn-primary">Return to main page</Link>
+            </ModalFooter>
+        </Modal>
     </div>
 }
 
