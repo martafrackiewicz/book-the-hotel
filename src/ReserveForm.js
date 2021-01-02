@@ -88,7 +88,7 @@ const ReserveForm = () => {
             </div>
             <button type="submit" className="btn btn-primary reserve-submit-button">Reserve</button>
         </form>
-        <Modal isOpen={modal} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
+        <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
             <ModalHeader>Reservation successful!</ModalHeader>
             <ModalBody>
                 Thank you for your reservation.
