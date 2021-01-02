@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import "./HeaderButton.scss";
+import "./AdminLoginButton.scss";
 
-const HeaderButton = () => {
+const AdminLoginButton = () => {
     return <Link to={"/admin"} className={"btn btn-outline-secondary header-button"}>Admin</Link>
 }
 
-export default HeaderButton;
+export default AdminLoginButton;

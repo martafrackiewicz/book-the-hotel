@@ -7,9 +7,10 @@ import HotelsList from "./HotelsList";
 import Details from "./Details";
 import ReserveForm from "./ReserveForm";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import AdminPanel from "./AdminPanel";
+import Login from "./Login";
 import firebase from "firebase/app";
-// import "firebase/auth";
-// import "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDLll6YVTKeMsflK2_K2Gzx0-YUwBjQwaA",
@@ -31,7 +32,8 @@ const App = () => {
                     <Route exact path='/' component={HotelsList} />
                     <Route path={`/details/:id`} component={Details} />
                     <Route path={`/reserve/:id`} component={ReserveForm} />
-                    {/*<Route path='/admin' component={AdminPanel} />*/}
+                    <Route path='/login' component={Login} />
+                    <PrivateRoute path="/admin" component={AdminPanel} />
                 </Switch>
             </>
         </BrowserRouter>
