@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./ReserveForm.scss";
 import firebase from "firebase/app";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 const ReserveForm = () => {
 
@@ -23,6 +23,8 @@ const ReserveForm = () => {
 
     const toggle = () => setModal(!modal);
 
+    let { id } = useParams();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const db = firebase.firestore();
@@ -33,7 +35,8 @@ const ReserveForm = () => {
             room: room,
             checkinDate: checkinDate,
             checkoutDate: checkoutDate,
-            reservation_date: new Date().toLocaleString()
+            reservation_date: new Date().toLocaleString(),
+            hotelId: id
         })
             .then(() => toggle());
     }
