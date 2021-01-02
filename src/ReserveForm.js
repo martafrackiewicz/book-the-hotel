@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./ReserveForm.scss";
 import firebase from "firebase/app";
-import "firebase/firestore";
+import {onLog} from "firebase";
 
 const ReserveForm = () => {
 
@@ -19,9 +19,10 @@ const ReserveForm = () => {
     const handleCheckinDate = e => setCheckinDate(e.target.value)
     const handleCheckoutDate = e => setCheckoutDate(e.target.value)
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const db = firebase.firestore();
-        db.collection("reservations").doc().set({
+        db.collection("reservations").add({
             name: name,
             surname: surname,
             email: email,
@@ -29,12 +30,12 @@ const ReserveForm = () => {
             checkinDate: checkinDate,
             checkoutDate: checkoutDate,
             reservation_date: new Date().toLocaleString()
-        });
+        })
     }
 
     return <div className="container">
         <h5 className="form-title">Reservation form</h5>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={(e) => handleSubmit(e)} >
             <div className="form-row">
                 <div className="form-group col-md-4">
                     <label htmlFor="inputName">Name</label>

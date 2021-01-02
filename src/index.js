@@ -6,7 +6,7 @@ import Header from "./Header";
 import HotelsList from "./HotelsList";
 import Details from "./Details";
 import ReserveForm from "./ReserveForm";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import firebase from "firebase/app";
 // import "firebase/auth";
 // import "firebase/firestore";
@@ -27,10 +27,12 @@ const App = () => {
         <BrowserRouter>
             <>
                 <Header/>
-                <Route exact path='/' component={HotelsList} />
-                <Route path={`/details/:id`} component={Details} />
-                <Route path={`/reserve/:id`} component={ReserveForm} />
-                {/*<Route path='/admin' component={AdminPanel} />*/}
+                <Switch>
+                    <Route exact path='/' component={HotelsList} />
+                    <Route path={`/details/:id`} component={Details} />
+                    <Route path={`/reserve/:id`} component={ReserveForm} />
+                    {/*<Route path='/admin' component={AdminPanel} />*/}
+                </Switch>
             </>
         </BrowserRouter>
     )
