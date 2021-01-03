@@ -12,6 +12,7 @@ import AdminPanel from "./AdminPanel";
 import Login from "./Login";
 import ReservationsList from "./ReservationsList";
 import EditForm from "./EditForm";
+import AddForm from "./AddForm";
 import firebase from "firebase/app";
 
 const firebaseConfig = {
@@ -38,6 +39,7 @@ const App = () => {
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/reservations' component={ReservationsList} />
                     <Route exact path='/hotels' component={HotelsList} />
+                    <Route exact path='/hotels/add' component={AddForm} />
                     <PrivateRoute exact path="/admin" component={AdminPanel} />
                 </Switch>
             </>

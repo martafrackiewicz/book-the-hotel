@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import ReservationsListButton from "./ReservationsListButton";
 import HotelsListButton from "./HotelsListButton";
+import HotelAddButton from "./HotelAddButton";
 
 const AdminPanel = () => {
     return (
@@ -13,6 +14,7 @@ const AdminPanel = () => {
                 <hr className="my-4"/>
                 <nav className="nav nav-pills nav-justified admin-panel-nav">
                     <HotelsListButton />
+                    <HotelAddButton />
                     <ReservationsListButton />
                 </nav>
             </div>
