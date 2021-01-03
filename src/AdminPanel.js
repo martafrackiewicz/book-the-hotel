@@ -1,8 +1,6 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import ReservationsListButton from "./ReservationsListButton";
-import HotelsListButton from "./HotelsListButton";
-import HotelAddButton from "./HotelAddButton";
+import Button from "./Button";
+import "./AdminPanel.scss";
 
 const AdminPanel = () => {
     return (
@@ -13,9 +11,9 @@ const AdminPanel = () => {
                     attention to featured content or information.</p>
                 <hr className="my-4"/>
                 <nav className="nav nav-pills nav-justified admin-panel-nav">
-                    <HotelsListButton />
-                    <HotelAddButton />
-                    <ReservationsListButton />
+                    <Button url={"/hotels"} text={"Hotels"}/>
+                    <Button url={"/hotels/add"} text={"Add new hotel"}/>
+                    <Button url={"/reservations"} text={"Reservations"}/>
                 </nav>
             </div>
         </div>

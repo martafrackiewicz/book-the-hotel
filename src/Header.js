@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderLogo from "./HeaderLogo";
-import AdminButton from "./AdminButton";
+import Button from "./Button";
 import './Header.scss';
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
     return <header className={"header"}>
         <div className={"container header-container"}>
             <HeaderLogo/>
-            <AdminButton/>
+            <Button url={"/admin"} text={"Admin"}/>
         </div>
     </header>
 }
