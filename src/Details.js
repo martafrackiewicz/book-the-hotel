@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import "./Details.scss";
-import { useParams } from 'react-router-dom';
+import {Link, useParams, useHistory} from 'react-router-dom';
 import firebase from "firebase/app";
 import Stars from "./Stars";
 import ReserveButton from "./ReserveButton";
 import {logged} from "./Login";
-
+import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
 const Details = () => {
 
     let { id } = useParams();
+    const history = useHistory();
 
     const [hotelDetails, setHotelDetails] = useState({});
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         const db = firebase.firestore();
@@ -32,17 +34,24 @@ const Details = () => {
         animals = <li className={"hotel_extras_element"}>Pet are not allowed</li>
     }
 
-
     const handleEditHotel = (e, id) => {
         e.preventDefault();
         console.log("edit", id)
     }
 
     const handleDeleteHotel = (e, id) => {
-        e.preventDefault();
-        console.log("delete", id)
+        toggle();
+        const db = firebase.firestore();
+        db.collection("hotels").doc(id).delete()
+            .then(() => {
+            console.log("Document successfully deleted!");
+            history.push("/hotels")
+        }).catch(() => {
+            console.error("Error removing document.");
+        });
     }
 
+    const toggle = () => setModal(!modal);
 
     if (Object.entries(hotelDetails).length !== 0) {
         return (
@@ -86,19 +95,35 @@ const Details = () => {
                             <div class={"buttons"}>
                                 {!logged.isAuthenticated && <ReserveButton id={id} />}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
-                                    <button onClick={e => handleEditHotel(e, id)} className={"btn btn-outline-secondary"}>Edit</button>
-                                    <button onClick={e => handleDeleteHotel(e, id)} className={"btn btn-outline-secondary"}>Delete</button>
+                                    <button onClick={e => handleEditHotel(e, id)}
+                                            className={"btn btn-outline-secondary"}>Edit</button>
+                                    <button onClick={toggle}
+                                            className={"btn btn-outline-secondary"}>Delete</button>
                                 </div>}
                             </div>
                         </div>
                     </div>
+                    <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
+                        <ModalHeader>Attention</ModalHeader>
+                        <ModalBody>
+                            Are you sure you want to delete this hotel?
+                        </ModalBody>
+                        <ModalFooter>
+                            <button
+                                onClick={e => handleDeleteHotel(e, id)}
+                                type="button"
+                                className="btn btn-outline-danger">
+                                Delete
+                            </button>
+                            <button onClick={toggle} type="button" className="btn btn-outline-secondary">Cancel</button>
+                        </ModalFooter>
+                    </Modal>
                 </div>
             </div>
         )
     }
 
     return null;
-
 
 }
 

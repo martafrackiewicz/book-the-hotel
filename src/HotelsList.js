@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import HotelsListElement from "./HotelsListElement";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import {useLocation} from "react-router-dom";
 
 const HotelsList = () => {
 
@@ -16,7 +17,6 @@ const HotelsList = () => {
             });
         })
     }, []);
-
 
 
     return (
