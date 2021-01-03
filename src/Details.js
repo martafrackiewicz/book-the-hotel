@@ -3,7 +3,7 @@ import "./Details.scss";
 import {Link, useParams, useHistory} from 'react-router-dom';
 import firebase from "firebase/app";
 import Stars from "./Stars";
-import ReserveButton from "./ReserveButton";
+import Button from "./Button";
 import {logged} from "./Login";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
@@ -91,7 +91,7 @@ const Details = () => {
                                     <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>}
                                 </ul>}
                             <div className={"buttons"}>
-                                {!logged.isAuthenticated && <ReserveButton id={id} />}
+                                {!logged.isAuthenticated && <Button url={`/reserve/${id}`} text={"Reserve"} size={"small"}/>}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
                                     <Link to={`/details/${id}/edit`}
                                             className={"btn btn-outline-secondary"}>Edit</Link>

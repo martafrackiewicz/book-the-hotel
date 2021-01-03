@@ -1,7 +1,8 @@
 import React from 'react';
 import "./HotelsListElement.scss";
 import Stars from "./Stars";
-import DetailsButton from "./DetailsButton";
+import Button from "./Button";
+import {Link} from "react-router-dom";
 
 const HotelsListElement = ({image, name, num_stars, address, description, price, id}) => {
 
@@ -20,7 +21,7 @@ const HotelsListElement = ({image, name, num_stars, address, description, price,
         </div>
         <div className="col price">
             <p>${price}</p>
-            <DetailsButton id={id} />
+            <Button url={`/details/${id}`} text={"More details"} size={"small"}/>
         </div>
     </li>
     )
