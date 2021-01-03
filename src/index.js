@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminPanel from "./AdminPanel";
 import Login from "./Login";
 import ReservationsList from "./ReservationsList";
+import EditForm from "./EditForm";
 import firebase from "firebase/app";
 
 const firebaseConfig = {
@@ -31,12 +32,13 @@ const App = () => {
                 <Header/>
                 <Switch>
                     <Route exact path='/' component={HotelsList} />
-                    <Route path={`/details/:id`} component={Details} />
-                    <Route path={`/reserve/:id`} component={ReserveForm} />
-                    <Route path='/login' component={Login} />
-                    <Route path='/reservations' component={ReservationsList} />
-                    <Route path='/hotels' component={HotelsList} />
-                    <PrivateRoute path="/admin" component={AdminPanel} />
+                    <Route exact path={`/details/:id`} component={Details} />
+                    <Route exact path={`/details/:id/edit`} component={EditForm} />
+                    <Route exact path={`/reserve/:id`} component={ReserveForm} />
+                    <Route exact path='/login' component={Login} />
+                    <Route exact path='/reservations' component={ReservationsList} />
+                    <Route exact path='/hotels' component={HotelsList} />
+                    <PrivateRoute exact path="/admin" component={AdminPanel} />
                 </Switch>
             </>
         </BrowserRouter>

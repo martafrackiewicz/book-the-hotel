@@ -63,14 +63,14 @@ const ReserveForm = () => {
                         <div className="col-md-10">
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" id="gridRadios1"
-                                       value="single" onChange={(e => handleRoom(e))}/>
+                                       value="single" name="rooms" onChange={(e => handleRoom(e))}/>
                                 <label className="form-check-label" htmlFor="gridRadios1">
                                     Single
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" id="gridRadios2"
-                                       value="double" onChange={(e => handleRoom(e))}/>
+                                       value="double" name="rooms" onChange={(e => handleRoom(e))}/>
                                 <label className="form-check-label" htmlFor="gridRadios2">
                                     Double
                                 </label>

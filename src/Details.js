@@ -34,11 +34,6 @@ const Details = () => {
         animals = <li className={"hotel_extras_element"}>Pet are not allowed</li>
     }
 
-    const handleEditHotel = (e, id) => {
-        e.preventDefault();
-        console.log("edit", id)
-    }
-
     const handleDeleteHotel = (e, id) => {
         toggle();
         const db = firebase.firestore();
@@ -95,11 +90,11 @@ const Details = () => {
                                     {hotelDetails.rooms.double &&
                                     <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>}
                                 </ul>}
-                            <div class={"buttons"}>
+                            <div className={"buttons"}>
                                 {!logged.isAuthenticated && <ReserveButton id={id} />}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
-                                    <button onClick={e => handleEditHotel(e, id)}
-                                            className={"btn btn-outline-secondary"}>Edit</button>
+                                    <Link to={`/details/${id}/edit`}
+                                            className={"btn btn-outline-secondary"}>Edit</Link>
                                     <button onClick={toggle}
                                             className={"btn btn-outline-secondary"}>Delete</button>
                                 </div>}
