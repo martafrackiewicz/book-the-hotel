@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import HotelsListElement from "./HotelsListElement";
 import firebase from "firebase/app";
 import "firebase/firestore";
-// import "firebase/storage";
 
 const HotelsList = () => {
 

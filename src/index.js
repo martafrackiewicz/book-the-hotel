@@ -35,6 +35,7 @@ const App = () => {
                     <Route path={`/reserve/:id`} component={ReserveForm} />
                     <Route path='/login' component={Login} />
                     <Route path='/reservations' component={ReservationsList} />
+                    <Route path='/hotels' component={HotelsList} />
                     <PrivateRoute path="/admin" component={AdminPanel} />
                 </Switch>
             </>

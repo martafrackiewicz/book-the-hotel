@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import firebase from "firebase/app";
 import Stars from "./Stars";
 import ReserveButton from "./ReserveButton";
+import {logged} from "./Login";
 
 
 const Details = () => {
@@ -29,6 +30,17 @@ const Details = () => {
         animals = <li className={"hotel_extras_element"}>Pet are allowed</li>
     } else {
         animals = <li className={"hotel_extras_element"}>Pet are not allowed</li>
+    }
+
+
+    const handleEditHotel = (e, id) => {
+        e.preventDefault();
+        console.log("edit", id)
+    }
+
+    const handleDeleteHotel = (e, id) => {
+        e.preventDefault();
+        console.log("delete", id)
     }
 
 
@@ -71,8 +83,12 @@ const Details = () => {
                                     <li className={"hotel_rooms_element"}>{`Single: ${hotelDetails.rooms.single}`}</li>
                                     <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>
                                 </ul>
-                            <div>
-                                <ReserveButton id={id} />
+                            <div class={"buttons"}>
+                                {!logged.isAuthenticated && <ReserveButton id={id} />}
+                                {logged.isAuthenticated && <div className={"admin-buttons"}>
+                                    <button onClick={e => handleEditHotel(e, id)} className={"btn btn-outline-secondary"}>Edit</button>
+                                    <button onClick={e => handleDeleteHotel(e, id)} className={"btn btn-outline-secondary"}>Delete</button>
+                                </div>}
                             </div>
                         </div>
                     </div>
