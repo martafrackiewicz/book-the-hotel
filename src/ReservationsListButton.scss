@@ -1,0 +1,8 @@
+.reservations-list-button {
+  font-size: 1.5em;
+  min-width: 6em;
+
+  &:focus {
+    box-shadow: none;
+  }
+}

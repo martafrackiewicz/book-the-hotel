@@ -10,6 +10,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import AdminPanel from "./AdminPanel";
 import Login from "./Login";
+import ReservationsList from "./ReservationsList";
 import firebase from "firebase/app";
 
 const firebaseConfig = {
@@ -33,6 +34,7 @@ const App = () => {
                     <Route path={`/details/:id`} component={Details} />
                     <Route path={`/reserve/:id`} component={ReserveForm} />
                     <Route path='/login' component={Login} />
+                    <Route path='/reservations' component={ReservationsList} />
                     <PrivateRoute path="/admin" component={AdminPanel} />
                 </Switch>
             </>
