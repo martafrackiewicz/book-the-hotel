@@ -88,10 +88,13 @@ const Details = () => {
                         </div>
                         <div className="col hotel_booking">
                                 <h4>Available rooms:</h4>
-                                <ul className={"hotel_rooms_list"}>
-                                    <li className={"hotel_rooms_element"}>{`Single: ${hotelDetails.rooms.single}`}</li>
-                                    <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>
-                                </ul>
+                            {hotelDetails.rooms &&
+                            <ul className={"hotel_rooms_list"}>
+                                    {hotelDetails.rooms.single &&
+                                    <li className={"hotel_rooms_element"}>{`Single: ${hotelDetails.rooms.single}`}</li>}
+                                    {hotelDetails.rooms.double &&
+                                    <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>}
+                                </ul>}
                             <div class={"buttons"}>
                                 {!logged.isAuthenticated && <ReserveButton id={id} />}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
