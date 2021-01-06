@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "./ReserveForm.scss";
+import "./Form.scss";
 import firebase from "firebase/app";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {useHistory, useParams} from "react-router-dom";
@@ -65,22 +65,22 @@ const EditForm = () => {
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputName">Address</label>
-                        <input type="text" className="form-control" id="inputName"
+                        <label htmlFor="inputAddress">Address</label>
+                        <input type="text" className="form-control" id="inputAddress"
                                defaultValue={hotelDetails.address}
                                onChange={(e => handleAddress(e))}
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputSurname">Stars</label>
-                        <input type="text" className="form-control" id="inputSurname"
+                        <label htmlFor="inputStars">Stars</label>
+                        <input type="text" className="form-control" id="inputStars"
                                defaultValue={hotelDetails.stars}
                                onChange={(e => handleStars(e))}
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputEmail">Price</label>
-                        <input type="text" className="form-control" id="inputEmail"
+                        <label htmlFor="inputPrice">Price</label>
+                        <input type="text" className="form-control" id="inputPrice"
                                defaultValue={hotelDetails.price}
                                onChange={(e => handlePrice(e))}
                         />
@@ -88,15 +88,15 @@ const EditForm = () => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputName">Available single rooms</label>
-                        <input type="text" className="form-control" id="inputName"
+                        <label htmlFor="inputRoomsSingle">Available single rooms</label>
+                        <input type="text" className="form-control" id="inputRoomsSingle"
                                defaultValue={hotelDetails.rooms.single}
                                onChange={(e => handleRoomsSingle(e))}
                         />
                     </div>
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputSurname">Available double rooms</label>
-                        <input type="text" className="form-control" id="inputSurname"
+                        <label htmlFor="inputRoomsDouble">Available double rooms</label>
+                        <input type="text" className="form-control" id="inputRoomsDouble"
                                defaultValue={hotelDetails.rooms.double}
                                onChange={(e => handleRoomsDouble(e))}
                         />
@@ -104,15 +104,15 @@ const EditForm = () => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputCheckinDate">Image Url</label>
-                        <textarea type="text" className="form-control" id="inputCheckinDate"
+                        <label htmlFor="inputImageUrl">Image Url</label>
+                        <textarea type="text" className="form-control" id="inputImageUrl"
                                defaultValue={hotelDetails.image_url}
                                onChange={(e => handleImageUrl(e))}
                         />
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputCheckoutDate">Description</label>
-                        <textarea className="form-control" id="inputCheckoutDate"
+                        <label htmlFor="inputDescription">Description</label>
+                        <textarea className="form-control" id="inputDescription"
                                   defaultValue={hotelDetails.description}
                                   onChange={(e => handleDescription(e))}
                         />
@@ -134,38 +134,38 @@ const EditForm = () => {
                             <label className="form-check-label" htmlFor="inlineCheckbox2">Breakfast</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox3"
                                    defaultChecked={hotelDetails.gym}
                                    onChange={(e => handleGym(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Gym</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox3">Gym</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox2"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox4"
                                    defaultChecked={hotelDetails.swimming_pool}
                                    onChange={(e => handleSwimmingPool(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox2">Swimming pool</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox4">Swimming pool</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox5"
                                    defaultChecked={hotelDetails.wifi}
                                    onChange={(e => handleWifi(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Wifi</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox6">Wifi</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox2"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox7"
                                    defaultChecked={hotelDetails.room_service}
                                    onChange={(e => handleRoomService(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox2">Room service</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox7">Room service</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox8"
                                    defaultChecked={hotelDetails.restaurant}
                                    onChange={(e => handleRestaurant(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Restaurant</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox8">Restaurant</label>
                         </div>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary reserve-submit-button">Submit</button>
+                <button type="submit" className="btn btn-primary submit-button">Submit</button>
             </form>
             <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
                 <ModalHeader>Edit successful!</ModalHeader>

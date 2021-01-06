@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "./ReserveForm.scss";
+import "./Form.scss";
 import firebase from "firebase/app";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {Link, useParams} from "react-router-dom";
@@ -86,7 +86,7 @@ const ReserveForm = () => {
                     <input type="date" className="form-control" id="inputCheckoutDate" onChange={(e => handleCheckoutDate(e))}/>
                 </div>
             </div>
-            <button type="submit" className="btn btn-primary reserve-submit-button">Reserve</button>
+            <button type="submit" className="btn btn-primary submit-button">Reserve</button>
         </form>
         <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
             <ModalHeader>Reservation successful!</ModalHeader>

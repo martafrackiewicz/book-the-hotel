@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "./ReserveForm.scss";
+import "./Form.scss";
 import firebase from "firebase/app";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {useHistory} from "react-router-dom";
@@ -138,7 +138,7 @@ const AddForm = () => {
                         </div>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary reserve-submit-button">Submit</button>
+                <button type="submit" className="btn btn-primary submit-button">Submit</button>
             </form>
             <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
                 <ModalHeader>Added successful!</ModalHeader>
