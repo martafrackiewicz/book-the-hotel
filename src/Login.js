@@ -34,16 +34,16 @@ const Login = () => {
     }
 
     return (
-        <div className={"container"}>
+        <div className="container">
             <form onSubmit={e => login(e)}>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <label htmlFor="inputEmail">Email address</label>
+                    <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp"
                            placeholder="Enter email" onChange={handleEmail}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onChange={handlePassword} />
+                    <label htmlFor="inputPassword">Password</label>
+                    <input type="password" className="form-control" id="inputPassword" placeholder="Password" onChange={handlePassword} />
                 </div>
                 <button type="submit" className="btn btn-primary">Sign in</button>
             </form>

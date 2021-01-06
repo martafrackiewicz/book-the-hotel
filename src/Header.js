@@ -6,7 +6,7 @@ import './Header.scss';
 const Header = () => {
 
     return <header className={"header"}>
-        <div className={"container header-container"}>
+        <div className={"container navbar"}>
             <HeaderLogo/>
             <Button url={"/admin"} text={"Admin"}/>
         </div>

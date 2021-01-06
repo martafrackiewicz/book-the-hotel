@@ -2,16 +2,15 @@ import React from 'react';
 import "./HotelsListElement.scss";
 import Stars from "./Stars";
 import Button from "./Button";
-import {Link} from "react-router-dom";
 
 const HotelsListElement = ({image, name, num_stars, address, description, price, id}) => {
 
     return (
-    <li className="row hotels-list-element" key={id}>
+    <li className="row hotels-list-element d-flex flex-lg-row flex-column" key={id}>
         <div className="col img">
-            <img alt={"hotel_room"} src={image} className="img-fluid"/>
+            <img alt={"hotel_room"} src={image} className="img-fluid mb-3 mb-lg-2"/>
         </div>
-        <div className="col-6 hotel-specs">
+        <div className="col-6 col hotel-specs">
             <div className={"hotel-specs-name"}>
                 <h3 className={"name"}>{name}</h3>
                 <Stars num_stars={num_stars}/>

@@ -1,10 +1,16 @@
 @import "_variables";
 
 .header-logo {
-    font-size: 3em;
+    font-size: 48px;
 
     &:hover {
         text-decoration: none;
         color: $base-color;
+    }
+}
+
+@media (max-width: 490px) {
+    .header-logo {
+        font-size: 36px;
     }
 }

@@ -1,6 +1,9 @@
+@import "_variables";
+
 .big-button {
   font-size: 1.5em;
   min-width: 6em;
+  background-color: $elements-color;
 
   &:focus {
     box-shadow: none;
@@ -8,8 +11,16 @@
 }
 
 .small-button {
-  width: 10em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-width: 10em;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 490px) {
+  .big-button {
+    font-size: 1.25em;
+    min-width: 4em;
+  }
 }

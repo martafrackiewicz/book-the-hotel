@@ -51,12 +51,12 @@ const Details = () => {
     if (Object.entries(hotelDetails).length !== 0) {
         return (
             <div className={"container"}>
-                <div className={"details_wrap"}>
-                    <div className={"row hotel_details_main"}>
+                <div className={"details_wrap mb-3"}>
+                    <div className={"row hotel_details_main d-flex flex-lg-row flex-column"}>
                         <div className="col img">
-                            <img alt={"hotel_room"} src={hotelDetails.image_url} className="img-fluid"/>
+                            <img alt={"hotel_room"} src={hotelDetails.image_url} className="img-fluid mb-3 mb-lg-2"/>
                         </div>
-                        <div className="col-6 hotel-specs">
+                        <div className="col col-xl-6 hotel-specs">
                             <div className={"hotel-specs-name"}>
                                 <h3 className={"name"}>{hotelDetails.name}</h3>
                                 <Stars num_stars={hotelDetails.stars}/>
