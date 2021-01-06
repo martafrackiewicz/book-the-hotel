@@ -37,7 +37,7 @@ const App = () => {
                     <Route exact path={`/details/:id/edit`} component={EditForm} />
                     <Route exact path={`/reserve/:id`} component={ReserveForm} />
                     <Route exact path='/login' component={Login} />
-                    <Route exact path='/reservations' component={ReservationsList} />
+                    <PrivateRoute exact path='/reservations' component={ReservationsList} />
                     <Route exact path='/hotels' component={HotelsList} />
                     <Route exact path='/hotels/add' component={AddForm} />
                     <PrivateRoute exact path="/admin" component={AdminPanel} />
