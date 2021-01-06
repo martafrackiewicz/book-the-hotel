@@ -10,46 +10,47 @@
 
     .img {
       margin-top: 20px;
+    }
 
-      .price {
-        font-size: 2em;
-        text-align: center;
+    .price {
+      font-size: 2em;
+      text-align: center;
+    }
+
+    .hotel-specs {
+      &-name {
+        display: flex;
       }
+    }
+  }
 
-      .hotel-specs {
-        &-name {
-          display: flex;
+  .hotel_details_extras {
+    margin: 0;
+    padding: 0 10px 10px;
+
+    .hotel_extras {
+      padding-left: 20px;
+
+      .hotel_extras_list {
+        padding: 0 10px 10px;
+
+        .hotel_extras_element {
+          list-style: disc;
         }
       }
     }
 
-    .hotel_details_extras {
-      margin: 0;
-      padding: 0 10px 10px;
+    .buttons {
 
-      .hotel_extras {
-        padding-left: 20px;
+      .admin-buttons {
+        margin-top: 20px;
 
-        .hotel_extras_list {
-          padding: 0 10px 10px;
-
-          .hotel_extras_element {
-            list-style: disc;
-          }
-        }
-      }
-
-      .buttons {
-
-        .admin-buttons {
-          margin-top: 20px;
-
-          .btn {
-            min-width: 80px;
-            margin-right: 20px;
-          }
+        .btn {
+          min-width: 80px;
+          margin-right: 20px;
         }
       }
     }
   }
 }
+
