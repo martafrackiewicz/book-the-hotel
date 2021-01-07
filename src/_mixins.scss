@@ -1,0 +1,12 @@
+@import "variables";
+
+@mixin price {
+    font-size: 2em;
+    text-align: center;
+
+    p {
+      padding: 5px;
+      border: 1px solid $base-color;
+      border-radius: 5px;
+    }
+}

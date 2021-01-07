@@ -75,7 +75,7 @@ const Details = () => {
                             <p className={"address"}><strong>Address:</strong> {hotelDetails.address}</p>
                             <p className={"description"}>{hotelDetails.description}</p>
                         </div>
-                        <div className="col price">
+                        <div className="col price pl-lg-4 pr-lg-4">
                             <p>${hotelDetails.price}</p>
                         </div>
                     </div>

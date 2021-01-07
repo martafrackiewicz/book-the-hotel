@@ -1,4 +1,5 @@
-@import "_variables";
+@import "variables";
+@import "mixins";
 
 .hotels-list-element {
     border: 1px solid $base-color;
@@ -7,8 +8,7 @@
     background-color: #fff;
 
     .price {
-        font-size: 2em;
-        text-align: center;
+        @include price;
     }
 
     .hotel-specs {
