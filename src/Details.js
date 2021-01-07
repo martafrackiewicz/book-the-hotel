@@ -6,6 +6,17 @@ import Stars from "./Stars";
 import Button from "./Button";
 import {logged} from "./Login";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faBan,
+    faCoffee,
+    faConciergeBell,
+    faDumbbell,
+    faEdit,
+    faPaw, faSwimmingPool,
+    faTrashAlt,
+    faUtensils, faWifi
+} from '@fortawesome/free-solid-svg-icons'
 
 const Details = () => {
 
@@ -21,17 +32,17 @@ const Details = () => {
             .then(snapshot => setHotelDetails(snapshot.data()))
     }, []);
 
-    const createExtrasElement = (element, content) => {
+    const createExtrasElement = (element, content, icon) => {
         if (element) {
-            return <li className={"hotel_extras_element"}>{content}</li>
+            return <li className={"hotel_extras_element"}><FontAwesomeIcon icon={icon} className={"icon"}/>{content}</li>
         }
     }
 
     let animals;
     if (hotelDetails.animals) {
-        animals = <li className={"hotel_extras_element"}>Pet are allowed</li>
+        animals = <li className={"hotel_extras_element"}><FontAwesomeIcon icon={faPaw} className={"icon"}/>Pet are allowed</li>
     } else {
-        animals = <li className={"hotel_extras_element"}>Pet are not allowed</li>
+        animals = <li className={"hotel_extras_element"}><FontAwesomeIcon icon={faBan} className={"icon"}/>Pet are not allowed</li>
     }
 
     const handleDeleteHotel = (e, id) => {
@@ -72,12 +83,12 @@ const Details = () => {
                         <div className="col hotel_extras">
                             <h4>Facilities:</h4>
                             <ul className="hotel_extras_list">
-                                {createExtrasElement(hotelDetails.restaurant, "Hotel restaurant")}
-                                {createExtrasElement(hotelDetails.breakfast, "Breakfast included")}
-                                {createExtrasElement(hotelDetails.room_service, "Room service")}
-                                {createExtrasElement(hotelDetails.gym, "Gym")}
-                                {createExtrasElement(hotelDetails.swimming_pool, "Swimming pool")}
-                                {createExtrasElement(hotelDetails.wifi, "Free WiFi")}
+                                {createExtrasElement(hotelDetails.restaurant, "Hotel restaurant", faUtensils)}
+                                {createExtrasElement(hotelDetails.breakfast, "Breakfast included", faCoffee)}
+                                {createExtrasElement(hotelDetails.room_service, "Room service", faConciergeBell)}
+                                {createExtrasElement(hotelDetails.gym, "Gym", faDumbbell)}
+                                {createExtrasElement(hotelDetails.swimming_pool, "Swimming pool", faSwimmingPool)}
+                                {createExtrasElement(hotelDetails.wifi, "Free WiFi", faWifi)}
                                 {animals}
                             </ul>
                         </div>
@@ -94,9 +105,11 @@ const Details = () => {
                                 {!logged.isAuthenticated && <Button url={`/reserve/${id}`} text={"Reserve"} size={"small"}/>}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
                                     <Link to={`/details/${id}/edit`}
-                                            className={"btn btn-outline-secondary small-button"}>Edit</Link>
+                                            className={"btn btn-outline-secondary small-button"}>
+                                        <FontAwesomeIcon icon={faEdit} className={"icon"}/>Edit</Link>
                                     <button onClick={toggle}
-                                            className={"btn btn-outline-secondary small-button"}>Delete</button>
+                                            className={"btn btn-outline-secondary small-button"}>
+                                        <FontAwesomeIcon icon={faTrashAlt} className={"icon"}/>Delete</button>
                                 </div>}
                             </div>
                         </div>
