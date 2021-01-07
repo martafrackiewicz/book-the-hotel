@@ -54,7 +54,7 @@ const ReserveForm = () => {
                 </div>
                 <div className="form-group col-md-4">
                     <label htmlFor="inputEmail">Email</label>
-                    <input type="text" className="form-control" id="inputEmail" onChange={(e => handleEmail(e))}/>
+                    <input type="email" className="form-control" id="inputEmail" onChange={(e => handleEmail(e))}/>
                 </div>
             </div>
             <div className="form-row">
