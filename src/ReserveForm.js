@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import "./Form.scss";
 import firebase from "firebase/app";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
+import MyModal from "./MyModal";
 
 const ReserveForm = () => {
 
@@ -88,15 +88,8 @@ const ReserveForm = () => {
             </div>
             <button type="submit" className="btn btn-primary submit-button">Reserve</button>
         </form>
-        <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
-            <ModalHeader>Reservation successful!</ModalHeader>
-            <ModalBody>
-                Thank you for your reservation.
-            </ModalBody>
-            <ModalFooter>
-                <Link to="/" className="btn btn-primary">Return to main page</Link>
-            </ModalFooter>
-        </Modal>
+        <MyModal url={"/"} textHeader={"Reservation successful!"} textButton={"Return to main page"}
+                 isOpen={modal} toggle={toggle}/>
     </div>
 }
 

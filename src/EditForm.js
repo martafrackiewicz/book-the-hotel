@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import "./Form.scss";
 import firebase from "firebase/app";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
+import MyModal from "./MyModal";
 
 const EditForm = () => {
 
     let { id } = useParams();
-    const history = useHistory();
 
     const [hotelDetails, setHotelDetails] = useState({});
     const [modal, setModal] = useState(false);
@@ -27,8 +26,6 @@ const EditForm = () => {
     const handleStars = e => setHotelDetails({...hotelDetails, stars: parseInt(e.target.value)})
     const handleSwimmingPool = e => setHotelDetails({...hotelDetails, swimming_pool: e.target.checked})
     const handleWifi = e => setHotelDetails({...hotelDetails, wifi: e.target.checked})
-
-    const handleReturn = () => history.push(`/details/${id}`)
 
     useEffect(() => {
         const db = firebase.firestore();
@@ -167,12 +164,8 @@ const EditForm = () => {
                 </div>
                 <button type="submit" className="btn btn-primary submit-button">Submit</button>
             </form>
-            <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
-                <ModalHeader>Edit successful!</ModalHeader>
-                <ModalFooter>
-                    <button onClick={handleReturn} className="btn btn-primary">Return to hotel details</button>
-                </ModalFooter>
-            </Modal>
+            <MyModal url={`/details/${id}`} textHeader={"Edit successful!"} textButton={"Return to hotel details"}
+                     isOpen={modal} toggle={toggle} />
         </div>
     }
 

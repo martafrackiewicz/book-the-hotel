@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import "./Details.scss";
+import "./HotelDetails.scss";
 import HotelsListElementMain from "./HotelsListElementMain";
-import {Link, useParams, useHistory} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import firebase from "firebase/app";
 import Button from "./Button";
 import {logged} from "./Login";
@@ -17,15 +17,16 @@ import {
     faTrashAlt,
     faUtensils, faWifi
 } from '@fortawesome/free-solid-svg-icons'
+import MyModal from "./MyModal";
 
 
-const Details = () => {
+const HotelDetails = () => {
 
     let { id } = useParams();
-    const history = useHistory();
 
     const [hotelDetails, setHotelDetails] = useState({});
     const [modal, setModal] = useState(false);
+    const [modalAttention, setModalAttention] = useState(false);
 
     useEffect(() => {
         const db = firebase.firestore();
@@ -47,18 +48,21 @@ const Details = () => {
     }
 
     const handleDeleteHotel = (e, id) => {
-        toggle();
+        toggleFinally();
         const db = firebase.firestore();
         db.collection("hotels").doc(id).delete()
             .then(() => {
             console.log("Document successfully deleted!");
-            history.push("/hotels")
         }).catch(() => {
             console.error("Error removing document.");
         });
     }
 
-    const toggle = () => setModal(!modal);
+    const toggleFinally = () => {
+        toggleAttention();
+        setModal(!modal);
+    };
+    const toggleAttention = () => setModalAttention(!modalAttention);
 
     if (Object.entries(hotelDetails).length !== 0) {
         return (
@@ -98,14 +102,14 @@ const Details = () => {
                                     <Link to={`/details/${id}/edit`}
                                             className={"btn btn-outline-secondary small-button"}>
                                         <FontAwesomeIcon icon={faEdit} className={"icon"}/>Edit</Link>
-                                    <button onClick={toggle}
+                                    <button onClick={toggleAttention}
                                             className={"btn btn-outline-secondary small-button"}>
                                         <FontAwesomeIcon icon={faTrashAlt} className={"icon"}/>Delete</button>
                                 </div>}
                             </div>
                         </div>
                     </div>
-                    <Modal isOpen={modal} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggle}>
+                    <Modal isOpen={modalAttention} centered={true} fade={false} backdrop={'static'} keyboard={false} toggle={toggleAttention}>
                         <ModalHeader>Attention</ModalHeader>
                         <ModalBody>
                             Are you sure you want to delete this hotel?
@@ -117,9 +121,11 @@ const Details = () => {
                                 className="btn btn-outline-danger">
                                 Delete
                             </button>
-                            <button onClick={toggle} type="button" className="btn btn-outline-secondary">Cancel</button>
+                            <button onClick={toggleAttention} type="button" className="btn btn-outline-secondary">Cancel</button>
                         </ModalFooter>
                     </Modal>
+                    <MyModal url={"/hotels"} toggle={toggleFinally} textButton={"Return to hotels list"}
+                             textHeader={"Delete successful!"} isOpen={modal} />
                 </div>
             </div>
         )
@@ -129,4 +135,4 @@ const Details = () => {
 
 }
 
-export default Details;
+export default HotelDetails;

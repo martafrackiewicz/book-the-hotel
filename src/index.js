@@ -4,7 +4,7 @@ import './index.scss';
 import 'normalize.css';
 import Header from "./Header";
 import HotelsList from "./HotelsList";
-import Details from "./Details";
+import HotelDetails from "./HotelDetails";
 import ReserveForm from "./ReserveForm";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
@@ -33,7 +33,7 @@ const App = () => {
                 <Header/>
                 <Switch>
                     <Route exact path='/' component={HotelsList} />
-                    <Route exact path={`/details/:id`} component={Details} />
+                    <Route exact path={`/details/:id`} component={HotelDetails} />
                     <Route exact path={`/details/:id/edit`} component={EditForm} />
                     <Route exact path={`/reserve/:id`} component={ReserveForm} />
                     <Route exact path='/login' component={Login} />
