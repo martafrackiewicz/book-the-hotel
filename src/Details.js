@@ -94,9 +94,9 @@ const Details = () => {
                                 {!logged.isAuthenticated && <Button url={`/reserve/${id}`} text={"Reserve"} size={"small"}/>}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
                                     <Link to={`/details/${id}/edit`}
-                                            className={"btn btn-outline-secondary"}>Edit</Link>
+                                            className={"btn btn-outline-secondary small-button"}>Edit</Link>
                                     <button onClick={toggle}
-                                            className={"btn btn-outline-secondary"}>Delete</button>
+                                            className={"btn btn-outline-secondary small-button"}>Delete</button>
                                 </div>}
                             </div>
                         </div>
