@@ -7,8 +7,8 @@ const AdminPanel = () => {
         <div className="container">
             <div className="jumbotron">
                 <h1 className="display-4">Hello, admin!</h1>
-                <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                    attention to featured content or information.</p>
+                <p className="lead">Here is your back-office &ndash; you can browse and manage all hotels, add new one
+                    or check the reservations from your visitors.</p>
                 <hr className="my-4"/>
                 <nav className="nav nav-pills nav-justified admin-panel-nav">
                     <Button url={"/hotels"} text={"Hotels"}/>
