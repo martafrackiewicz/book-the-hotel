@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import "./Details.scss";
+import HotelsListElementMain from "./HotelsListElementMain";
 import {Link, useParams, useHistory} from 'react-router-dom';
 import firebase from "firebase/app";
-import Stars from "./Stars";
 import Button from "./Button";
 import {logged} from "./Login";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
@@ -17,6 +17,7 @@ import {
     faTrashAlt,
     faUtensils, faWifi
 } from '@fortawesome/free-solid-svg-icons'
+
 
 const Details = () => {
 
@@ -64,20 +65,10 @@ const Details = () => {
             <div className={"container"}>
                 <div className={"details_wrap mb-3"}>
                     <div className={"row hotel_details_main d-flex flex-lg-row flex-column"}>
-                        <div className="col img">
-                            <img alt={"hotel_room"} src={hotelDetails.image_url} className="img-fluid mb-3 mb-lg-2"/>
-                        </div>
-                        <div className="col col-xl-6 hotel-specs">
-                            <div className={"hotel-specs-name"}>
-                                <h3 className={"name"}>{hotelDetails.name}</h3>
-                                <Stars num_stars={hotelDetails.stars}/>
-                            </div>
-                            <p className={"address"}><strong>Address:</strong> {hotelDetails.address}</p>
-                            <p className={"description"}>{hotelDetails.description}</p>
-                        </div>
-                        <div className="col price pl-lg-4 pr-lg-4">
-                            <p>${hotelDetails.price}</p>
-                        </div>
+                        <HotelsListElementMain image={hotelDetails.image_url} name={hotelDetails.name}
+                                               num_stars={hotelDetails.stars} address={hotelDetails.address}
+                                               description={hotelDetails.description} price={hotelDetails.price} id={id}
+                                               detailsButtonVisible={false}/>
                     </div>
                     <div className={"row hotel_details_extras"}>
                         <div className="col hotel_extras">
