@@ -52,7 +52,7 @@ const EditForm = () => {
     if (Object.entries(hotelDetails).length !== 0) {
         return <div className="container">
             <h5 className="form-title">Edit form</h5>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form className={"animate__animated animate__fadeInDown"} onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-row">
                     <div className="form-group col-md-3">
                         <label htmlFor="inputName">Hotel name</label>

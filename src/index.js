@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import 'normalize.css';
+import 'animate.css';
 import Header from "./Header";
 import HotelsList from "./HotelsList";
 import HotelDetails from "./HotelDetails";

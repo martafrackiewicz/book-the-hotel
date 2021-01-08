@@ -67,7 +67,7 @@ const HotelDetails = () => {
     if (Object.entries(hotelDetails).length !== 0) {
         return (
             <div className={"container"}>
-                <div className={"details_wrap mb-3"}>
+                <div className={"details_wrap mb-3 animate__animated animate__zoomIn animate__faster"}>
                     <div className={"row hotel_details_main d-flex flex-lg-row flex-column"}>
                         <HotelsListElementMain image={hotelDetails.image_url} name={hotelDetails.name}
                                                num_stars={hotelDetails.stars} address={hotelDetails.address}

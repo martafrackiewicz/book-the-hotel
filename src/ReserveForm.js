@@ -42,7 +42,7 @@ const ReserveForm = () => {
     }
     return <div className="container">
         <h5 className="form-title">Reservation form</h5>
-        <form onSubmit={(e) => handleSubmit(e)} >
+        <form className={"animate__animated animate__fadeInDown"} onSubmit={(e) => handleSubmit(e)} >
             <div className="form-row">
                 <div className="form-group col-md-4">
                     <label htmlFor="inputName">Name</label>
