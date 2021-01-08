@@ -9,7 +9,7 @@ const HotelsListElementMain = ({image, name, num_stars, address, description, pr
         <div className="col img">
                 <img alt={"hotel_room"} src={image} className="img-fluid mb-3 mb-lg-2"/>
             </div>
-            <div className="col-6 col hotel-specs">
+            <div className="col-lg-6 col hotel-specs">
                 <div className={"hotel-specs-name"}>
                     <h3 className={"name"}>{name}</h3>
                     <Stars num_stars={num_stars}/>
