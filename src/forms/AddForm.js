@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "./Form.scss";
 import firebase from "firebase/app";
-import MyModal from "./MyModal";
+import MyModal from "../common/MyModal";
 
 const AddForm = () => {
 

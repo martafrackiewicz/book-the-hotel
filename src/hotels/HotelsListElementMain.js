@@ -1,7 +1,7 @@
 import React from 'react';
 import "./HotelsListElementMain.scss";
 import Stars from "./Stars";
-import Button from "./Button";
+import Button from "../common/Button";
 
 const HotelsListElementMain = ({image, name, num_stars, address, description, price, id, detailsButtonVisible}) => {
 

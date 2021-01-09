@@ -3,8 +3,8 @@ import "./HotelDetails.scss";
 import HotelsListElementMain from "./HotelsListElementMain";
 import {Link, useParams} from 'react-router-dom';
 import firebase from "firebase/app";
-import Button from "./Button";
-import {logged} from "./Login";
+import Button from "../common/Button";
+import {logged} from "../Login";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -17,7 +17,7 @@ import {
     faTrashAlt,
     faUtensils, faWifi
 } from '@fortawesome/free-solid-svg-icons'
-import MyModal from "./MyModal";
+import MyModal from "../common/MyModal";
 
 
 const HotelDetails = () => {

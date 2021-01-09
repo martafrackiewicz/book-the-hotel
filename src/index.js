@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import 'normalize.css';
 import 'animate.css';
-import Header from "./Header";
-import HotelsList from "./HotelsList";
-import HotelDetails from "./HotelDetails";
-import ReserveForm from "./ReserveForm";
+import Header from "./header/Header";
+import HotelsList from "./hotels/HotelsList";
+import HotelDetails from "./hotels/HotelDetails";
+import ReserveForm from "./forms/ReserveForm";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import AdminPanel from "./AdminPanel";
+import AdminPanel from "./admin/AdminPanel";
 import Login from "./Login";
-import ReservationsList from "./ReservationsList";
-import EditForm from "./EditForm";
-import AddForm from "./AddForm";
+import ReservationsList from "./reservations/ReservationsList";
+import EditForm from "./forms/EditForm";
+import AddForm from "./forms/AddForm";
 import firebase from "firebase/app";
 
 const firebaseConfig = {

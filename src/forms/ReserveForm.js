@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import "./Form.scss";
 import firebase from "firebase/app";
 import {useParams} from "react-router-dom";
-import MyModal from "./MyModal";
+import MyModal from "../common/MyModal";
 
 const ReserveForm = () => {
 

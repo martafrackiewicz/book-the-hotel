@@ -3,7 +3,7 @@ import firebase from "firebase";
 import {faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
-import MyModal from "./MyModal";
+import MyModal from "../common/MyModal";
 
 const ReservationsList = () => {
 
