@@ -41,29 +41,29 @@ const AddForm = () => {
             <form className={"animate__animated animate__fadeInDown"} onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-row">
                     <div className="form-group col-md-3">
-                        <label className={"required"} htmlFor="inputName">Hotel name</label>
-                        <input type="text" className="form-control" id="inputName"
+                        <label className={"required"} htmlFor="inputHotelName">Hotel name</label>
+                        <input type="text" className="form-control" id="inputHotelName"
                                onChange={(e => handleHotelName(e))}
                                required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label className={"required"} htmlFor="inputName">Address</label>
-                        <input type="text" className="form-control" id="inputName"
+                        <label className={"required"} htmlFor="inputAddress">Address</label>
+                        <input type="text" className="form-control" id="inputAddress"
                                onChange={(e => handleAddress(e))}
                                required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label className={"required"} htmlFor="inputSurname">Stars</label>
-                        <input type="text" className="form-control" id="inputSurname"
+                        <label className={"required"} htmlFor="inputStars">Stars</label>
+                        <input type="text" className="form-control" id="inputStars"
                                onChange={(e => handleStars(e))}
                                required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label className={"required"} htmlFor="inputEmail">Price</label>
-                        <input type="text" className="form-control" id="inputEmail"
+                        <label className={"required"} htmlFor="inputPrice">Price</label>
+                        <input type="text" className="form-control" id="inputPrice"
                                onChange={(e => handlePrice(e))}
                                required
                         />
@@ -71,15 +71,15 @@ const AddForm = () => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-4">
-                        <label className={"required"} htmlFor="inputName">Available single rooms</label>
-                        <input type="text" className="form-control" id="inputName"
+                        <label className={"required"} htmlFor="inputRoomsSingle">Available single rooms</label>
+                        <input type="text" className="form-control" id="inputRoomsSingle"
                                onChange={(e => handleRoomsSingle(e))}
                                required
                         />
                     </div>
                     <div className="form-group col-md-4">
-                        <label className={"required"} htmlFor="inputSurname">Available double rooms</label>
-                        <input type="text" className="form-control" id="inputSurname"
+                        <label className={"required"} htmlFor="inputRoomsDouble">Available double rooms</label>
+                        <input type="text" className="form-control" id="inputRoomsDouble"
                                onChange={(e => handleRoomsDouble(e))}
                                required
                         />
@@ -87,15 +87,15 @@ const AddForm = () => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label className={"required"} htmlFor="inputCheckinDate">Image Url</label>
-                        <textarea type="text" className="form-control" id="inputCheckinDate"
+                        <label className={"required"} htmlFor="inputImageUrl">Image Url</label>
+                        <textarea type="text" className="form-control" id="inputImageUrl"
                                   onChange={(e => handleImageUrl(e))}
                                   required
                         />
                     </div>
                     <div className="form-group col-md-6">
-                        <label className={"required"} htmlFor="inputCheckoutDate">Description</label>
-                        <textarea className="form-control" id="inputCheckoutDate"
+                        <label className={"required"} htmlFor="inputDescription">Description</label>
+                        <textarea className="form-control" id="inputDescription"
                                   onChange={(e => handleDescription(e))}
                                   required
                         />
@@ -115,29 +115,29 @@ const AddForm = () => {
                             <label className="form-check-label" htmlFor="inlineCheckbox2">Breakfast</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox3"
                                    onChange={(e => handleGym(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Gym</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox3">Gym</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox2"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox4"
                                    onChange={(e => handleSwimmingPool(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox2">Swimming pool</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox4">Swimming pool</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox5"
                                    onChange={(e => handleWifi(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Wifi</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox5">Wifi</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox2"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox6"
                                    onChange={(e => handleRoomService(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox2">Room service</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox6">Room service</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            <input className="form-check-input" type="checkbox" id="inlineCheckbox7"
                                    onChange={(e => handleRestaurant(e))}/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Restaurant</label>
+                            <label className="form-check-label" htmlFor="inlineCheckbox7">Restaurant</label>
                         </div>
                     </div>
                 </div>
