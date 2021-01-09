@@ -55,63 +55,71 @@ const EditForm = () => {
             <form className={"animate__animated animate__fadeInDown"} onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-row">
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputName">Hotel name</label>
+                        <label className={"required"} htmlFor="inputName">Hotel name</label>
                         <input type="text" className="form-control" id="inputName"
                                defaultValue={hotelDetails.name}
                                onChange={(e => handleHotelName(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputAddress">Address</label>
+                        <label className={"required"} htmlFor="inputAddress">Address</label>
                         <input type="text" className="form-control" id="inputAddress"
                                defaultValue={hotelDetails.address}
                                onChange={(e => handleAddress(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputStars">Stars</label>
+                        <label className={"required"} htmlFor="inputStars">Stars</label>
                         <input type="text" className="form-control" id="inputStars"
                                defaultValue={hotelDetails.stars}
                                onChange={(e => handleStars(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputPrice">Price</label>
+                        <label className={"required"} htmlFor="inputPrice">Price</label>
                         <input type="text" className="form-control" id="inputPrice"
                                defaultValue={hotelDetails.price}
                                onChange={(e => handlePrice(e))}
+                               required
                         />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputRoomsSingle">Available single rooms</label>
+                        <label className={"required"} htmlFor="inputRoomsSingle">Available single rooms</label>
                         <input type="text" className="form-control" id="inputRoomsSingle"
                                defaultValue={hotelDetails.rooms.single}
                                onChange={(e => handleRoomsSingle(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputRoomsDouble">Available double rooms</label>
+                        <label className={"required"} htmlFor="inputRoomsDouble">Available double rooms</label>
                         <input type="text" className="form-control" id="inputRoomsDouble"
                                defaultValue={hotelDetails.rooms.double}
                                onChange={(e => handleRoomsDouble(e))}
+                               required
                         />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputImageUrl">Image Url</label>
+                        <label className={"required"} htmlFor="inputImageUrl">Image Url</label>
                         <textarea type="text" className="form-control" id="inputImageUrl"
                                defaultValue={hotelDetails.image_url}
                                onChange={(e => handleImageUrl(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputDescription">Description</label>
+                        <label className={"required"} htmlFor="inputDescription">Description</label>
                         <textarea className="form-control" id="inputDescription"
                                   defaultValue={hotelDetails.description}
                                   onChange={(e => handleDescription(e))}
+                                  required
                         />
                     </div>
                 </div>

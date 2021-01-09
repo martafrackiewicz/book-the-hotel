@@ -29,4 +29,10 @@ img {
 
 form {
   margin-bottom: 20px;
+
+  label.required:after {
+    color: red;
+    content: " *";
+  }
 }
+

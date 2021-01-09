@@ -41,55 +41,63 @@ const AddForm = () => {
             <form className={"animate__animated animate__fadeInDown"} onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-row">
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputName">Hotel name</label>
+                        <label className={"required"} htmlFor="inputName">Hotel name</label>
                         <input type="text" className="form-control" id="inputName"
                                onChange={(e => handleHotelName(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputName">Address</label>
+                        <label className={"required"} htmlFor="inputName">Address</label>
                         <input type="text" className="form-control" id="inputName"
                                onChange={(e => handleAddress(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputSurname">Stars</label>
+                        <label className={"required"} htmlFor="inputSurname">Stars</label>
                         <input type="text" className="form-control" id="inputSurname"
                                onChange={(e => handleStars(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-3">
-                        <label htmlFor="inputEmail">Price</label>
+                        <label className={"required"} htmlFor="inputEmail">Price</label>
                         <input type="text" className="form-control" id="inputEmail"
                                onChange={(e => handlePrice(e))}
+                               required
                         />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputName">Available single rooms</label>
+                        <label className={"required"} htmlFor="inputName">Available single rooms</label>
                         <input type="text" className="form-control" id="inputName"
                                onChange={(e => handleRoomsSingle(e))}
+                               required
                         />
                     </div>
                     <div className="form-group col-md-4">
-                        <label htmlFor="inputSurname">Available double rooms</label>
+                        <label className={"required"} htmlFor="inputSurname">Available double rooms</label>
                         <input type="text" className="form-control" id="inputSurname"
                                onChange={(e => handleRoomsDouble(e))}
+                               required
                         />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputCheckinDate">Image Url</label>
+                        <label className={"required"} htmlFor="inputCheckinDate">Image Url</label>
                         <textarea type="text" className="form-control" id="inputCheckinDate"
                                   onChange={(e => handleImageUrl(e))}
+                                  required
                         />
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputCheckoutDate">Description</label>
+                        <label className={"required"} htmlFor="inputCheckoutDate">Description</label>
                         <textarea className="form-control" id="inputCheckoutDate"
                                   onChange={(e => handleDescription(e))}
+                                  required
                         />
                     </div>
                 </div>

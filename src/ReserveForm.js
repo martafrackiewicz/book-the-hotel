@@ -45,32 +45,37 @@ const ReserveForm = () => {
         <form className={"animate__animated animate__fadeInDown"} onSubmit={(e) => handleSubmit(e)} >
             <div className="form-row">
                 <div className="form-group col-md-4">
-                    <label htmlFor="inputName">Name</label>
-                    <input type="text" className="form-control" id="inputName" onChange={(e => handleName(e))}/>
+                    <label className={"required"} htmlFor="inputName">Name</label>
+                    <input type="text" className="form-control" id="inputName" onChange={(e => handleName(e))}
+                           required />
                 </div>
                 <div className="form-group col-md-4">
-                    <label htmlFor="inputSurname">Surname</label>
-                    <input type="text" className="form-control" id="inputSurname" onChange={(e => handleSurname(e))}/>
+                    <label className={"required"} htmlFor="inputSurname">Surname</label>
+                    <input type="text" className="form-control" id="inputSurname" onChange={(e => handleSurname(e))}
+                           required/>
                 </div>
                 <div className="form-group col-md-4">
-                    <label htmlFor="inputEmail">Email</label>
-                    <input type="email" className="form-control" id="inputEmail" onChange={(e => handleEmail(e))}/>
+                    <label className={"required"} htmlFor="inputEmail">Email</label>
+                    <input type="email" className="form-control" id="inputEmail" onChange={(e => handleEmail(e))}
+                           required/>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-md-2">
-                        <label>Room</label>
+                        <label className={"required"}>Room</label>
                         <div className="col-md-10">
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" id="gridRadios1"
-                                       value="single" name="rooms" onChange={(e => handleRoom(e))}/>
+                                       value="single" name="rooms" onChange={(e => handleRoom(e))}
+                                       required/>
                                 <label className="form-check-label" htmlFor="gridRadios1">
                                     Single
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" id="gridRadios2"
-                                       value="double" name="rooms" onChange={(e => handleRoom(e))}/>
+                                       value="double" name="rooms" onChange={(e => handleRoom(e))}
+                                       required/>
                                 <label className="form-check-label" htmlFor="gridRadios2">
                                     Double
                                 </label>
@@ -78,12 +83,14 @@ const ReserveForm = () => {
                         </div>
                 </div>
                 <div className="form-group col-md-4">
-                    <label htmlFor="inputCheckinDate">Check-in date</label>
-                    <input type="date" className="form-control" id="inputCheckinDate" onChange={(e => handleCheckinDate(e))}/>
+                    <label className={"required"} htmlFor="inputCheckinDate">Check-in date</label>
+                    <input type="date" className="form-control" id="inputCheckinDate" onChange={(e => handleCheckinDate(e))}
+                           required/>
                 </div>
                 <div className="form-group col-md-4">
-                    <label htmlFor="inputCheckoutDate">Check-out date</label>
-                    <input type="date" className="form-control" id="inputCheckoutDate" onChange={(e => handleCheckoutDate(e))}/>
+                    <label className={"required"} htmlFor="inputCheckoutDate">Check-out date</label>
+                    <input type="date" className="form-control" id="inputCheckoutDate" onChange={(e => handleCheckoutDate(e))}
+                           required/>
                 </div>
             </div>
             <button type="submit" className="btn btn-primary submit-button">Reserve</button>
