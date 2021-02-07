@@ -26,6 +26,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.auth().signOut();
 
 const App = () => {
     return (
