@@ -17,6 +17,7 @@ const ReservationsList = () => {
         db.collection('reservations').get().then(snapshot => {
             snapshot.docs.forEach(doc => {
                 const reservation = doc.data();
+                console.log("rezerwacja", reservation)
                 reservation['resId'] = doc.id;
                 const hotelId = reservation.hotelId;
                 db.collection('hotels').doc(hotelId).get().then(snapshot => {
@@ -66,7 +67,6 @@ const ReservationsList = () => {
                         <th scope="col">Hotel name</th>
                         <th scope="col">Room</th>
                         <th scope="col">Reservation date</th>
-                        <th scope="col">id</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -83,7 +83,6 @@ const ReservationsList = () => {
                                 <td>{el.hotelName}</td>
                                 <td>{el.room}</td>
                                 <td>{el.reservation_date}</td>
-                                <td>{el.resId}</td>
                                 <td>
                                     <button className={"btn"} onClick={() => openAttention(el.resId)}>
                                         <FontAwesomeIcon icon={faTrashAlt} className={"icon"}/>
