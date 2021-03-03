@@ -20,7 +20,6 @@ const ReservationsList = () => {
                 reservation['resId'] = doc.id;
                 const hotelId = reservation.hotelId;
                 db.collection('hotels').doc(hotelId).get().then(snapshot => {
-                    console.log(snapshot, snapshot.data())
                     reservation['hotelName'] = snapshot.data().name;
                     setReservations(prevState => [...prevState, reservation])
                 })

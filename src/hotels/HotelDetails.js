@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "./HotelDetails.scss";
 import HotelsListElementMain from "./HotelsListElementMain";
-import {Link, useParams} from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import firebase from "firebase/app";
 import Button from "../common/Button";
-import {logged} from "../Login";
-import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import { logged } from "../Login";
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBan,
@@ -27,6 +27,7 @@ const HotelDetails = () => {
     const [hotelDetails, setHotelDetails] = useState({});
     const [modal, setModal] = useState(false);
     const [modalAttention, setModalAttention] = useState(false);
+    const [modalAttentionNotAllowed, setModalAttentionNotAllowed] = useState(false);
 
     useEffect(() => {
         const db = firebase.firestore();
@@ -36,26 +37,37 @@ const HotelDetails = () => {
 
     const createExtrasElement = (element, content, icon) => {
         if (element) {
-            return <li className={"hotel_extras_element"}><FontAwesomeIcon icon={icon} className={"icon"}/>{content}</li>
+            return <li className={"hotel_extras_element"}><FontAwesomeIcon icon={icon} className={"icon"} />{content}</li>
         }
     }
 
     let animals;
     if (hotelDetails.animals) {
-        animals = <li className={"hotel_extras_element"}><FontAwesomeIcon icon={faPaw} className={"icon"}/>Pet are allowed</li>
+        animals = <li className={"hotel_extras_element"}><FontAwesomeIcon icon={faPaw} className={"icon"} />Pet are allowed</li>
     } else {
-        animals = <li className={"hotel_extras_element"}><FontAwesomeIcon icon={faBan} className={"icon"}/>Pet are not allowed</li>
+        animals = <li className={"hotel_extras_element"}><FontAwesomeIcon icon={faBan} className={"icon"} />Pet are not allowed</li>
     }
 
     const handleDeleteHotel = (e, id) => {
-        toggleFinally();
         const db = firebase.firestore();
-        db.collection("hotels").doc(id).delete()
-            .then(() => {
-            console.log("Document successfully deleted!");
-        }).catch(() => {
-            console.error("Error removing document.");
-        });
+        const reservations = db.collection("reservations").get().then((snapshot) => {
+            const reservationsList = [];
+            snapshot.docs.forEach(el => {
+                reservationsList.push(el.data());
+            });
+            if (reservationsList.some(reservation => reservation.hotelId === id)) {
+                toggleAttentionNotAllowed();
+                toggleAttention();
+            } else {
+                toggleFinally();
+                db.collection("hotels").doc(id).delete()
+                    .then(() => {
+                        console.log("Document successfully deleted!");
+                    }).catch(() => {
+                        console.error("Error removing document.");
+                });
+            }
+        })
     }
 
     const toggleFinally = () => {
@@ -63,6 +75,7 @@ const HotelDetails = () => {
         setModal(!modal);
     };
     const toggleAttention = () => setModalAttention(!modalAttention);
+    const toggleAttentionNotAllowed = () => setModalAttentionNotAllowed(!modalAttentionNotAllowed);
 
     if (Object.entries(hotelDetails).length !== 0) {
         return (
@@ -70,9 +83,9 @@ const HotelDetails = () => {
                 <div className={"details_wrap mb-3 animate__animated animate__zoomIn animate__faster"}>
                     <div className={"row hotel_details_main d-flex flex-lg-row flex-column"}>
                         <HotelsListElementMain image={hotelDetails.image_url} name={hotelDetails.name}
-                                               num_stars={hotelDetails.stars} address={hotelDetails.address}
-                                               description={hotelDetails.description} price={hotelDetails.price} id={id}
-                                               detailsButtonVisible={false}/>
+                            num_stars={hotelDetails.stars} address={hotelDetails.address}
+                            description={hotelDetails.description} price={hotelDetails.price} id={id}
+                            detailsButtonVisible={false} />
                     </div>
                     <div className={"row hotel_details_extras"}>
                         <div className="col hotel_extras">
@@ -88,23 +101,23 @@ const HotelDetails = () => {
                             </ul>
                         </div>
                         <div className="col hotel_booking">
-                                <h4>Available rooms:</h4>
+                            <h4>Available rooms:</h4>
                             {hotelDetails.rooms &&
-                            <ul className={"hotel_rooms_list"}>
+                                <ul className={"hotel_rooms_list"}>
                                     {hotelDetails.rooms.single &&
-                                    <li className={"hotel_rooms_element"}>{`Single: ${hotelDetails.rooms.single}`}</li>}
+                                        <li className={"hotel_rooms_element"}>{`Single: ${hotelDetails.rooms.single}`}</li>}
                                     {hotelDetails.rooms.double &&
-                                    <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>}
+                                        <li className={"hotel_rooms_element"}>{`Double: ${hotelDetails.rooms.double}`}</li>}
                                 </ul>}
                             <div className={"buttons"}>
-                                {!logged.isAuthenticated && <Button url={`/reserve/${id}`} text={"Reserve"} size={"small"}/>}
+                                {!logged.isAuthenticated && <Button url={`/reserve/${id}`} text={"Reserve"} size={"small"} />}
                                 {logged.isAuthenticated && <div className={"admin-buttons"}>
                                     <Link to={`/details/${id}/edit`}
-                                            className={"btn btn-outline-secondary small-button"}>
-                                        <FontAwesomeIcon icon={faEdit} className={"icon"}/>Edit</Link>
+                                        className={"btn btn-outline-secondary small-button"}>
+                                        <FontAwesomeIcon icon={faEdit} className={"icon"} />Edit</Link>
                                     <button onClick={toggleAttention}
-                                            className={"btn btn-outline-secondary small-button"}>
-                                        <FontAwesomeIcon icon={faTrashAlt} className={"icon"}/>Delete</button>
+                                        className={"btn btn-outline-secondary small-button"}>
+                                        <FontAwesomeIcon icon={faTrashAlt} className={"icon"} />Delete</button>
                                 </div>}
                             </div>
                         </div>
@@ -124,8 +137,20 @@ const HotelDetails = () => {
                             <button onClick={toggleAttention} type="button" className="btn btn-outline-secondary">Cancel</button>
                         </ModalFooter>
                     </Modal>
+                    <Modal isOpen={modalAttentionNotAllowed} centered={true} fade={false} backdrop={'static'}
+                     keyboard={false} toggle={toggleAttentionNotAllowed}>
+                        <ModalHeader>Attention</ModalHeader>
+                        <ModalBody>
+                            This hotel is reserved. It is not allowed to delete reserved hotel.
+                        </ModalBody>
+                        <ModalFooter>
+                            <Link to={`/reservations`}
+                                className={"btn btn-primary"}>See reservations list</Link>
+                            <button onClick={toggleAttentionNotAllowed} type="button" className="btn btn-outline-secondary">Cancel</button>
+                        </ModalFooter>
+                    </Modal>
                     <MyModal url={"/hotels"} toggle={toggleFinally} textButton={"Return to hotels list"}
-                             textHeader={"Delete successful!"} isOpen={modal} />
+                        textHeader={"Delete successful!"} isOpen={modal} />
                 </div>
             </div>
         )
