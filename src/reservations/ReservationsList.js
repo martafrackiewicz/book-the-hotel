@@ -12,7 +12,7 @@ const ReservationsList = () => {
     const [modalAttention, setModalAttention] = useState(false);
     const [resIdToDelete, setResIdToDelete] = useState('')
 
-    useEffect(() => {
+    const getReservations = () => {
         const db = firebase.firestore();
         db.collection('reservations').get().then(snapshot => {
             snapshot.docs.forEach(doc => {
@@ -26,6 +26,20 @@ const ReservationsList = () => {
                 })
             })
         })
+    }
+
+    const reloadReservations = () => {
+        setReservations([]);
+        getReservations();
+    }
+
+    const handleCloseAfterDeleteReservation = () => {
+        reloadReservations();
+        setModal(!modal);
+    }
+
+    useEffect(() => {
+        getReservations();
     }, []);
 
     const handleDeleteReservation = () => {
@@ -111,7 +125,8 @@ const ReservationsList = () => {
                 </ModalFooter>
             </Modal>
             <MyModal url={null} toggle={toggleFinally} textButton={"Close"}
-                     textHeader={"Delete successful!"} isOpen={modal}/>
+                     textHeader={"Delete successful!"} isOpen={modal}
+                afterClosed={handleCloseAfterDeleteReservation} />
         </>
     )
 }
