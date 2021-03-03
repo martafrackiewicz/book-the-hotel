@@ -7,7 +7,7 @@ import Header from "./header/Header";
 import HotelsList from "./hotels/HotelsList";
 import HotelDetails from "./hotels/HotelDetails";
 import ReserveForm from "./forms/ReserveForm";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {HashRouter, Route, Switch} from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import AdminPanel from "./admin/AdminPanel";
 import Login from "./Login";
@@ -30,7 +30,7 @@ firebase.auth().signOut();
 
 const App = () => {
     return (
-        <BrowserRouter basename="/book-the-hotel">
+        <HashRouter>
             <>
                 <Header/>
                 <Switch>
@@ -45,7 +45,7 @@ const App = () => {
                     <PrivateRoute exact path="/admin" component={AdminPanel} />
                 </Switch>
             </>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
