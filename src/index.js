@@ -30,7 +30,7 @@ firebase.auth().signOut();
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/book-the-hotel">
             <>
                 <Header/>
                 <Switch>
