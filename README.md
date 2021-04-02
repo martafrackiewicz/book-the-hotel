@@ -3,6 +3,8 @@
 ## About
 This is the application to reserve rooms at the hotels and to manage the hotel chain. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and it use [Firebase](https://firebase.google.com/) for storing data and authentication. If you'd like to use all features, you have to contact me for login as administrator for access to edit data.
 
+Available here: https://martafrackiewicz.github.io/book-the-hotel/
+
 ## Features
 Users:
 * getting informations about the hotels
