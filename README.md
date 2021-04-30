@@ -30,4 +30,4 @@ HTML5, CSS3, Sass, Bootstrap 4, JavaScript, React, React Router, fetch, Cloud Fi
 The main goal of this project was creating the final project for bootcamp (Coders Lab). I wanted to practise my skills of builiding websites and learn how to build an apllication with CRUD operations that works using API.
 
 ## Status
-Project is in progress.
+Main features are done, features from todolist are in progress.
